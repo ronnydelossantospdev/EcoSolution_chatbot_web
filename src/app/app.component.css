@@ -1,0 +1,11 @@
+.content{
+    background-color: #8bf2c5c9;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/eco.jpg");
+    background-position: center center;
+    background-size: cover;
+}

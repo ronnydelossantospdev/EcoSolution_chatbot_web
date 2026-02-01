@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.liena_chat_user{
+    display: flex;
+    justify-content: end;
+}
+.chat_user{
+    display: flex;
+    gap: 1rem;
+}
+.txt_chat_user{
+    background-color: #ececec;
+    padding: 1rem;
+    margin-left: 5rem;
+    overflow: hidden;
+    border-radius: .8rem;
+    box-shadow: 1px 1px 2px #a4a4a4;
+}
+.ico_chat_user{
+    background-color: #8b8b8b;
+    align-self: flex-start;
+    justify-self: end;
+    padding: .6rem .4rem;
+    font-size: .8rem;
+    color: white;
+    border-radius: 50%;
+}
