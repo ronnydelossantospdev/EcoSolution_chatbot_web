@@ -1,27 +1,180 @@
-# EcoSolutions
+# EcoSolution_chatbot
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+El proyecto **EcoSolutions** consiste en el desarrollo de un chatbot basado en **Procesamiento de Lenguaje Natural (PLN)** que brinda información y soluciones relacionadas con problemas de contaminación ambiental.
 
-## Development server
+El sistema utiliza modelos de inteligencia artificial desarrollados en **Python**, empleando técnicas como **Regresión Logística** y **Vectorización de texto**, que permiten interpretar preguntas realizadas por los usuarios y generar respuestas relacionadas con temas ambientales. Para el entrenamiento del modelo, se recopilan y procesan datos obtenidos de distintas fuentes relacionadas con el medio ambiente.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El proyecto incluye un **sistema web desarrollado en Angular**, el cual se comunica con un **backend construido en Python mediante una API**.
 
-## Code scaffolding
+El sistema cuenta con **dos versiones del backend**:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* 🔹 Una API que entrena el modelo utilizando procesamiento tradicional (secuencial).
+* 🔹 Una API que entrena el modelo utilizando **procesamiento paralelo**, con el objetivo de mejorar el tiempo de entrenamiento del modelo.
 
-## Build
+Es importante destacar que el paralelismo se aplica únicamente durante el proceso de entrenamiento del modelo, no durante la ejecución ni en la generación de respuestas del chatbot.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+La solución está estructurada mediante **submódulos**, donde se separan los componentes del proyecto, incluyendo ambas versiones del backend y la aplicación web en Angular.
 
-## Running unit tests
+<br>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# 📦 Componentes del Proyecto
 
-## Running end-to-end tests
+El proyecto está compuesto por:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* 🌐 Frontend desarrollado en Angular
+* ⚙️ Backend Python — Entrenamiento secuencial del modelo
+* ⚙️ Backend Python — Entrenamiento paralelo del modelo
+* 🧠 Modelo de IA basado en PLN
+* 📦 Uso de submódulos Git para organizar los componentes
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<br>
+
+# ✅ Requisitos Previos
+
+Antes de instalar el proyecto debes tener instalado:
+
+* Git
+* Python 3.9 o superior
+* Node.js (versión 18 o superior recomendada)
+* Angular CLI
+
+Instalar Angular CLI:
+
+```bash
+npm install -g @angular/cli
+```
+
+<br>
+
+# ✅ Cómo descargar el proyecto con submódulos
+
+Existen varias formas de hacerlo.
+
+<br>
+
+## ⭐ Forma 1 — Clonar todo desde el inicio (Recomendada)
+
+Este método descarga el repositorio principal junto con todos los submódulos.
+
+```bash
+git clone --recurse-submodules URL_DEL_REPO
+```
+
+Luego entra al proyecto:
+
+```bash
+cd EcoSolution_chatbot
+```
+
+<br>
+
+## ⭐ Forma 2 — Si ya clonaste el repositorio sin submódulos
+
+Si ejecutaste solo `git clone`, debes inicializar los submódulos manualmente.
+
+Entra al proyecto:
+
+```bash
+cd EcoSolution_chatbot
+```
+
+Luego ejecuta:
+
+```bash
+git submodule update --init --recursive
+```
+
+Esto descargará todos los submódulos faltantes.
+
+<br>
+
+## ⭐ Forma 3 — Actualizar submódulos a la última versión
+
+Si los submódulos ya existen pero deseas actualizarlos:
+
+```bash
+git submodule update --recursive --remote
+```
+
+<br>
+
+# ✅ Instalación del Backend (Python API)
+
+Entrar al submódulo del backend:
+
+```bash
+cd backend_python
+```
+
+Crear entorno virtual:
+
+```bash
+python -m venv venv
+```
+
+Activar entorno virtual:
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux / Mac
+
+```bash
+source venv/bin/activate
+```
+
+Instalar dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+Ejecutar la API:
+
+```bash
+python app.py
+```
+
+<br>
+
+# ✅ Instalación del Frontend (Angular)
+
+Entrar al submódulo del frontend:
+
+```bash
+cd frontend_angular
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar el proyecto Angular:
+
+```bash
+ng serve
+```
+
+El sistema estará disponible en:
+
+```
+http://localhost:4200
+```
+
+<br>
+
+# ✅ Notas Importantes
+
+* El backend debe estar ejecutándose antes de iniciar el frontend.
+* Verificar que la URL de la API esté configurada correctamente en Angular.
+* Los submódulos contienen:
+
+  * Backend con procesamiento paralelo
+  * Backend con procesamiento no paralelo
+  * Sistema web Angular
